@@ -1,0 +1,66 @@
+<!-- Define a function to render the specialdish -->
+<% function renderSpecialdish(specialdish) { %>
+    <div class="item-details">
+      <article>
+        <h2>Title: <%= specialdish.title %></h2>
+        <div><strong>Subtitle:</strong> <%= specialdish.subtitle %>
+          <strong>Content:</strong> <%= specialdish.content %>
+          <strong>Button:</strong> <%= specialdish.button %>
+        </div>
+        <p>
+          <!-- <strong>Image:</strong> <%= specialdish.image %><br /> -->
+        </p>
+    
+        <!-- Update button -->
+        <form
+          class="action-form"
+          method="GET"
+          action="/single-specialdish/update/<%= specialdish._id %>"
+        >
+          <button type="submit" class="update">update</button>
+        </form>
+    
+        <!-- Delete button -->
+        <form
+          class="action-form"
+          method="POST"
+          action="/single-specialdish/<%= specialdish._id %>?_method=DELETE"
+        >
+          <button type="submit">delete</button>
+        </form>
+      </article>
+    </div>
+    <% } %>
+  
+      
+    <% 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        // Format the date as desired (e.g., YYYY-MM-DD)
+        const formattedDate = date.toLocaleDateString('fi-FI', { year: 'numeric', month: 'long', day: 'numeric' });
+        return formattedDate;
+    } 
+    %>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <!-- Pass a JavaScript variable to a partial in EJS -->
+    <%- include('partials/head.ejs', { title: home.title }) %>
+    <body>
+      <%- include('partials/navbar.ejs') %>
+      
+      <%- include('partials/single.ejs') %>
+      <div class="content">
+        <div class="specialdish">
+          <div class="item-list">
+            <% if (specialdish) { %> <%= renderSpecialdish(specialdish) %> <% } else { %>
+            <p>No specialdish found.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+  
+      <%- include('partials/footer.ejs') %>
+    </body>
+  </html>
+  

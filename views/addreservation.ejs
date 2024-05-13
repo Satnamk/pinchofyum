@@ -1,0 +1,66 @@
+<!-- addreservation.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Add Reservation" }) %>
+
+  <body>
+    <%- include('partials/navbar') %>
+
+    <section id="gtco-welcome" class="bg-white section-padding">
+      <div class="container">
+          <div class="section-content">
+           
+    <div class="content">
+      <div class="create">
+        <h2>Add a New Reservation</h2>
+        <form action="/addReservation" method="POST">
+          <div class="row">
+            <div class="col-md-12 form-group">
+          <label>Name:</label
+            ><input type="text" class="form-control" value="" id="name" name="name" required /> 
+          </div>
+          <div class="col-md-12 form-group">
+          <label>Email:</label
+            ><input type="text" class="form-control" value="" id="email" name="email" required />
+            </div>
+            <div class="col-md-12 form-group">
+            <label>Phone:</label
+              ><input type="number" class="form-control" value="" id="phone" name="phone" required /> 
+              </div>
+              <div class="col-md-12 form-group">
+              <label>Date:</label
+                ><input type="date" class="form-control" value="" id="date" name="date" required /> 
+                </div>
+                <div class="col-md-12 form-group">
+                <label>Time:</label
+                  ><input type="time" class="form-control" value="" id="time" name="time" required />   
+                  </div>
+                  <div class="col-md-12 form-group"> 
+                  <label for="person">Person:</label>
+                  <input type="number" class="form-control" id="person" name="person" required /><br />   
+</div>
+<div class="col-md-12 form-group">
+          <label for="message">Message:</label>
+          <textarea
+            value=""
+            id="message" class="form-control"
+            name="message"
+            rows="4"
+            required
+          ></textarea
+          ><br />
+
+          </div>
+          <div class="col-md-12 form-group">
+          <button class="btn btn-primary btn-shadow btn-lg" type="submit">Send Message</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    </div>
+    </section>
+  </body>
+</html>

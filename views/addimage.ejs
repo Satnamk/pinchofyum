@@ -1,0 +1,60 @@
+<!-- addhome.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+ 
+    <%- include('partials/head.ejs', { title: "Home page" }) %>
+  <body> 
+    <%- include('partials/admin-navbar.ejs') %>
+    <section id="gtco-reservation" class="bg-fixed bg-white section-padding ">
+
+    <div class="container">
+      <div class="section-content">
+          <div class="row">
+
+    <div class="content">
+      <div class="create">
+        <h3>Add Image </h3>
+        <form id="uploadForm" method="post" enctype="multipart/form-data">
+          <div class="row">
+            <div class="col-md-12 form-group">
+              <label>Title:</label
+              ><input type="text" value="" id="title" name="title" class="form-control" required />
+            </div>
+          <div class="col-md-12 form-group">
+          <label for="photo">Photo:</label>
+          <input type="file" id="photo" name="photo" class="form-control" required /><br />
+        </div>
+          <button class="btn btn-primary btn-shadow btn-lg" type="submit">Add Image</button>
+        </div>
+        </form>
+      </div>
+    </div>
+</div></div></div>
+
+
+
+<script>
+  document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+      
+      const formData = new FormData();
+      formData.append('image', document.querySelector('input[type="file"]').files[0]);
+
+      try {
+          const response = await fetch('/upload', {
+              method: 'POST',
+              body: formData
+          });
+
+          const result = await response.json();
+          console.log(result);
+      } catch (error) {
+          console.error('Error:', error);
+      }
+  });
+</script>
+  </body>
+</html>
+
+
+

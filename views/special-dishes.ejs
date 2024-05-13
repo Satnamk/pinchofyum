@@ -1,0 +1,95 @@
+<%- include('partials/head.ejs', { title: "Home page" }) %>
+
+<!DOCTYPE html>
+<!--
+	Resto by GetTemplates.co
+	URL: https://gettemplates.co
+-->
+<html lang="en">
+
+<%- include('partials/navbar.ejs') %>		<!-- Special Dishes Section -->
+<section id="gtco-special-dishes" class="bg-grey section-padding">
+    <div class="container">
+        <div class="section-content">
+            <div class="heading-section text-center">
+                <span class="subheading">
+                    Specialties
+                </span>
+                <h2>
+                    Special Dishes
+                </h2>
+            </div>
+            <div class="menus d-flex align-items-center special-page">
+            <div class="menu-img rounded-circle ">
+                <img class="img-fluid" src="img/img16.png" alt="">
+            </div>
+            <div class="menu-img rounded-circle">
+                <img class="img-fluid" src="img/img52.png" alt="">
+            </div>
+            <div class="menu-img rounded-circle">
+                <img class="img-fluid" src="img/img54.png" alt="">
+            </div>
+            <div class="menu-img rounded-circle">
+                <img class="img-fluid" src="img/img55.png" alt="">
+            </div>
+            <div class="menu-img rounded-circle">
+                <img class="img-fluid" src="img/img57.png" alt="">
+            </div>
+            <div class="menu-img rounded-circle">
+                <img class="img-fluid" src="img/img21.png" alt="">
+            </div>
+            </div>
+        <% function renderSpecialdish(specialdish) { %> 
+            <div class="row mt-5">
+                <div class="col-lg-5 col-md-6 align-self-center py-5">
+                    <!-- <h2 class="special-number">01.</h2> -->
+                    <div class="dishes-text">
+                        <h3><span><%= specialdish.title %></span><br><%= specialdish.subtitle %></h3>
+                        <p class="pt-3"><%= specialdish.content %></p>
+                        <h3 class="special-dishes-price">€<%= specialdish.price %></h3>
+                        <a href="/menu" class="btn-primary mt-3"><%= specialdish.button %></a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
+                    <img src="img/img20.png" alt="" class="img-fluid shadow w-100">
+                </div>
+               
+            </div>
+            <% } %>
+        
+            <% if (specialdishs.length > 0) { %>
+                <% renderSpecialdish(specialdishs[0]); %> <!-- Render only the first item -->
+            <% } else { %>
+                <!-- <p>No specialdishs found.</p> -->
+            <% } %>
+           
+            <div class="menus d-flex align-items-center special-page">
+                <div class="menu-img rounded-circle ">
+                    <img class="img-fluid" src="img/img5.png" alt="">
+                </div>
+                <div class="menu-img rounded-circle">
+                    <img class="img-fluid" src="img/img53.png" alt="">
+                </div>
+                <div class="menu-img rounded-circle">
+                    <img class="img-fluid" src="img/img45.png" alt="">
+                </div>
+                <div class="menu-img rounded-circle">
+                    <img class="img-fluid" src="img/img48.png" alt="">
+                </div>
+                <div class="menu-img rounded-circle">
+                    <img class="img-fluid" src="img/img54.png" alt="">
+                </div>
+                <div class="menu-img rounded-circle">
+                    <img class="img-fluid" src="img/img49.png" alt="">
+                </div>
+                </div>
+
+        </div>
+    </div>
+</section>
+<!-- End of Special Dishes Section -->		
+
+    <%- include('partials/footer.ejs') %>
+
+</body>
+</html>

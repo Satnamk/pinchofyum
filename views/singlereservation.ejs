@@ -1,0 +1,60 @@
+<!-- Define a function to render the reservation -->
+<% function renderReservation(reservation) { %>
+  <div class="item-details">
+    <article>
+      <h2>Name: <%= reservation.name %></h2>
+      <div><%= reservation.message %></div>
+      <p>
+        <strong>Person:</strong> <%= reservation.person %>
+      </p>
+  
+    <!-- Update button -->
+    <form
+    class="action-form"
+    method="GET"
+    action="/single-reservation/update/<%= reservation._id %>"
+  >
+    <button type="submit" class="update">update</button>
+  </form>
+  
+  !-- Delete button -->
+  <form
+    class="action-form"
+    method="POST"
+    action="/single-reservation/<%= reservation._id %>?_method=DELETE"
+  >
+    <button type="submit">delete</button>
+  </form>
+</article>
+</div>
+<% } %>
+
+    
+<% 
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    // Format the date as desired (e.g., YYYY-MM-DD)
+    const formattedDate = date.toLocaleDateString('fi-FI', { year: 'numeric', month: 'long', day: 'numeric' });
+    return formattedDate;
+} 
+%>
+
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: reservation.title }) %>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    
+    <%- include('partials/single.ejs') %>
+    <div class="content">
+      <div class="home">
+        <div class="item-list">
+          <% if (reservation) { %> <%= renderReservation(reservation) %> <% } else { %>
+          <p>No reservation found.</p>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

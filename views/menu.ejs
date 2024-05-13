@@ -1,0 +1,68 @@
+<%- include('partials/head.ejs', { title: "Home page" }) %>
+
+
+<!DOCTYPE html>
+<!--
+	Resto by GetTemplates.co
+	URL: https://gettemplates.co
+-->
+<html lang="en">
+
+<%- include('partials/navbar.ejs') %>	<!-- Menu Section -->
+<section id="gtco-menu" class="section-padding bg-white">
+    <div class="container">
+        <div class="section-content">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="heading-section text-center">
+                        <span class="subheading">
+                            Specialties
+                        </span>
+                        <h2>
+                            Our Menu
+                        </h2>
+                    </div>  
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 menu-wrap">
+                    <!-- <div class="heading-menu">
+                        <h3 class="text-center mb-5">Breakfast</h3>
+                    </div> -->
+                    <div class="menus d-flex align-items-center">
+                    <% function renderMenu(menu) { %>  
+                        <div class="text-wrap">
+                            <div class="row align-items-start">
+                                <div class="col-8">
+                                    <h4><%= menu.title%></h4>
+                                </div>
+                                <div class="col-4">
+                                    <h4 class="text-muted menu-price">€<%= menu.price %></h4>
+                                </div>
+                            </div>
+                            <p><%= menu.ingredients %></p>
+                        </div>
+                        <% } %> 
+                    </div>
+                   
+
+                    <% if (menus.length > 0) { %>
+                        <!-- Call the renderHome function for each home -->
+                        <% menus.forEach(renderMenu); %> <% } else { %>
+                        <p>No menus found.</p>
+                        <% } %>
+                 
+        </div>
+        
+    </div>
+</section>
+<!-- End of menu Section -->
+
+<%- include('partials/footer.ejs') %>
+
+</body>
+</html>
+
+
+
+

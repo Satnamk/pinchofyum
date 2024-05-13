@@ -1,0 +1,29 @@
+<!-- updatehome.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Home</h2>
+      <form action="/single-home/<%= home._id %>?_method=PUT" method="POST">
+        <label>Title:</label>
+        <input type="text" value="<%= home.title %>" id="title" name="title" required />
+
+        <label for="button">Button:</label>
+        <input type="text" id="button" name="button" required value="<%= home.button %>" />
+<!-- 
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" required value="<%= home.image %>" /> -->
+
+        <button type="submit">Update Home</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

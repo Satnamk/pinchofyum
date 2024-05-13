@@ -1,0 +1,62 @@
+<!-- Define a function to render the image -->
+<% function renderImage(image) { %>
+    <div class="item-details">
+      <article>
+        
+        <strong>Title:</strong> <%= image.title %><br />
+          <strong>Image:</strong> <%= image.photo %><br /> 
+       
+    
+        <!-- Update button -->
+        <form
+          class="action-form"
+          method="GET"
+          action="/single-image/update/<%= image._id %>"
+        >
+          <button type="submit" class="update">update</button>
+        </form>
+    
+        <!-- Delete button -->
+        <form
+          class="action-form"
+          method="POST"
+          action="/single-image/<%= image._id %>?_method=DELETE"
+        >
+          <button type="submit">delete</button>
+        </form>
+      </article>
+    </div>
+    <% } %>
+  
+      
+    <% 
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        // Format the date as desired (e.g., YYYY-MM-DD)
+        const formattedDate = date.toLocaleDateString('fi-FI', { year: 'numeric', month: 'long', day: 'numeric' });
+        return formattedDate;
+    } 
+    %>
+  
+  <!DOCTYPE html>
+  <html lang="en">
+    <!-- Pass a JavaScript variable to a partial in EJS -->
+    <%- include('partials/head.ejs', { title: image.title }) %>
+    <body>
+      <%- include('partials/navbar.ejs') %>
+      
+      <%- include('partials/single.ejs') %>
+      <div class="content">
+        <div class="image">
+          <div class="item-list">
+            <% if (image) { %> <%= renderImage(image) %> <% } else { %>
+            <p>No image found.</p>
+            <% } %>
+          </div>
+        </div>
+      </div>
+  
+      <%- include('partials/footer.ejs') %>
+    </body>
+  </html>
+  

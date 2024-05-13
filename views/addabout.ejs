@@ -1,0 +1,55 @@
+<!-- addabout.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Add About" }) %>
+
+  <body>
+    <%- include('partials/admin-navbar.ejs') %>
+    <section id="gtco-welcome" class="bg-white section-padding">
+      <div class="container">
+          <div class="section-content">
+           
+    <div class="content">
+      <div class="create">
+        <h2>Add About Content</h2>
+        <form action="/addAbout" method="POST">
+            <div class="col-md-12 form-group">
+                <label>Image:</label
+                ><input type="file" value="" id="image" name="image" class="form-control" required />
+              </div>
+            <div class="col-md-12 form-group">
+                <label>Title:</label
+                ><input type="text" value="" id="title" name="title" class="form-control" required />
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Subtitle:</label
+                ><input type="text" value="" id="subtitle" name="subtitle" class="form-control" required />
+              </div>
+              <div class="col-md-12 form-group">
+                <textarea rows="4" cols="50" id="content" name="content" class="form-control" required>
+                </textarea>          
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Special Recipe:</label
+                ><input type="text" value="" id="recipes" name="recipes" class="form-control" required />
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Photo:</label
+                ><input type="file" value="" id="photos" name="photos" class="form-control" required />
+              </div>
+              <div class="col-md-12 form-group">
+                <label>Recipe Name:</label
+                ><input type="text" value="" id="name" name="name" class="form-control" required />
+              </div><br>
+              <button class="btn btn-primary btn-shadow btn-lg" type="submit">Add About Content</button>
+        </form>
+      
+    </div>
+  </div>
+  </div>
+  </div>
+  </section>
+   
+  </body>
+</html>

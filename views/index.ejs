@@ -1,0 +1,89 @@
+<!-- Define a function to render each home -->
+<% function renderHome(home) { %>
+<!-- <div class="item-preview">
+  <a href="/single-home/<%= home._id %>">
+    <h2>Sender: <%= home.title %></h2>
+    <p>Written by Satnam</p>
+  </a>
+</div> -->
+<% } %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Home page" }) %>
+
+  <body>
+  
+    <%- include('partials/navbar.ejs') %>		
+    <div class="hero">
+    <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-lg-6 hero-left">
+        <% function renderHome(home) { %> 
+                <h1 class="display-4 mb-5"> <%= home.title %></h1>     
+          <div class="mb-2">
+            <a class="btn btn-primary btn-shadow btn-lg" href="/menu" role="button"><%= home.button %></a>
+            <!-- <img src="/uploads/<%= home.image %>" alt="Home Image"> -->
+          </div>
+          <% } %>
+          <div class="content">
+            <div class="home">
+              <div class="item-list">
+                <% if (homes.length > 0) { %>
+                <!-- Call the renderHome function for each home -->
+                <% homes.forEach(renderHome); %> <% } else { %>
+                <p>No homes found.</p>
+                <% } %>
+              </div>
+            </div>
+          </div>
+
+          <ul class="hero-info list-unstyled d-flex text-center mb-0">
+            <li class="border-right">
+              <span class="lnr lnr-rocket"></span>
+              <h5>
+                Fast Delivery
+              </h5>
+            </li>
+            <li class="border-right">
+              <span class="lnr lnr-leaf"></span>
+              <h5>
+                Fresh Food
+              </h5>
+            </li>
+            <li class="">
+              <span class="lnr lnr-bubble"></span>
+              <h5>
+                24/7 Support
+              </h5>
+            </li>
+          </ul>
+  
+        </div>
+
+
+        <div class="col-lg-6 hero-right">
+          <div class="owl-carousel owl-theme hero-carousel">
+            <div class="item">
+              <img class="img-fluid" src="img/img41.png" alt="">
+            </div>
+            <div class="item">
+              <img class="img-fluid" src="img/img40.png" alt="">
+            </div>
+            <div class="item">
+              <img class="img-fluid" src="img/img4.png" alt="">
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+  </div>	
+  
+
+  
+  <!-- End of Reservation Section -->		
+  
+    <%- include('partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!-- addhome.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+ 
+    <%- include('partials/head.ejs', { title: "Home page" }) %>
+  <body> 
+    <%- include('partials/admin-navbar.ejs') %>
+    <section id="gtco-reservation" class="bg-fixed bg-white section-padding ">
+
+    <div class="container">
+      <div class="section-content">
+          <div class="row">
+
+    <div class="content">
+      <div class="create">
+        <h3>Add Menu Content</h3>
+        <form action="/addMenu" method="POST" >
+          <div class="row">
+          <div class="col-md-12 form-group">
+          <label>Title:</label
+          ><input type="text" value="" id="title" name="title" class="form-control" required />
+        </div>
+        <div class="col-md-12 form-group">
+            <label>Ingredients:</label
+            ><input type="text" value="" id="ingredients" name="ingredients" class="form-control" required />
+          </div>
+          <div class="col-md-12 form-group">
+            <label>Price:</label
+            ><input type="number" value="" id="price" name="price" class="form-control" required />
+          </div>
+          
+          <button class="btn btn-primary btn-shadow btn-lg" type="submit">Add Menu</button>
+        </div>
+        </form>
+      </div>
+    </div>
+</div></div></div>
+  </body>
+</html>

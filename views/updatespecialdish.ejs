@@ -1,0 +1,40 @@
+<!-- updatespecialdish.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Specialdish</h2>
+      <form action="/single-specialdish/<%= specialdish._id %>?_method=PUT" method="POST">
+        <label>Title:</label>
+        <input type="text" value="<%= specialdish.title %>" id="title" name="title" required />
+
+        <label>Subtitle:</label>
+        <input type="text" value="<%= specialdish.subtitle %>" id="subtitle" name="subtitle" required />
+
+        <div class="col-md-12 form-group">
+            <textarea rows="4" cols="50" value="<%= specialdish.content %>" id="content" name="content" class="form-control" required>
+            </textarea></div>
+            
+        <div class="col-md-12 form-group">
+            <label>Price:</label
+            ><input type="number" value="€ <%= specialdish.price %>" id="price" name="price" class="form-control" required />
+          </div>
+        <label for="button">Button:</label>
+        <input type="text" id="button" name="button" required value="<%= specialdish.button %>" />
+<!-- 
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" required value="<%= specialdish.image %>" /> -->
+
+        <button type="submit">Update Specialdish</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

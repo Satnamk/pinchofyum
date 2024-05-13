@@ -1,0 +1,46 @@
+<!-- addspecialdish.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+ 
+    <%- include('partials/head.ejs', { title: "Home page" }) %>
+  <body> 
+    <%- include('partials/admin-navbar.ejs') %>
+    <section id="gtco-reservation" class="bg-fixed bg-white section-padding ">
+
+    <div class="container">
+      <div class="section-content">
+         
+
+    <div class="content">
+      <div class="create">
+        <h3>Add Specialdish </h3>
+        <form action="/addSpecialdish" method="POST" >
+          
+          <div class="col-md-12 form-group">
+          <label>Title:</label
+          ><input type="text" value="" id="title" name="title" class="form-control" required />
+        </div>
+        <div class="col-md-12 form-group">
+          <label>Subtitle:</label
+          ><input type="text" value="" id="subtitle" name="subtitle" class="form-control" required />
+        </div>
+        <div class="col-md-12 form-group">
+          <textarea rows="4" cols="50" id="content" name="content" class="form-control" required>
+          </textarea>          
+        </div>
+        <div class="col-md-12 form-group">
+          <label>Price:</label
+          ><input type="number" value="" id="price" name="price" class="form-control" required />
+        </div>
+        
+        <div class="col-md-12 form-group">
+          <label for="button">Button:</label>
+          <input type="string" id="button" name="button" class="form-control" required /><br />
+        </div>
+          <button class="btn btn-primary btn-shadow btn-lg" type="submit">Add Specialdish</button>        
+        </form>
+      </div>
+    </div>
+</div></div></section>
+  </body>
+</html>

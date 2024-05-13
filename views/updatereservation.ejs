@@ -1,0 +1,39 @@
+<!-- updatereservation.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Reservation</h2>
+      <form action="/single-reservation/<%= reservation._id %>?_method=PUT" method="POST">
+        <label>Name:</label>
+        <input type="text" value="<%= reservation.name %>" id="name" name="name" required />
+        <label>Email:</label>
+        <input type="text" value="<%= reservation.email %>" id="email" name="email" required />
+        <label>Phone:</label>
+        <input type="number" value="<%= reservation.phone %>" id="phone" name="phone" required />
+        <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required /><br />
+        <label for="time">Time:</label>
+          <input type="time" id="time" name="time" required /><br /> 
+          <label for="person">Person:</label>
+          <input type="number" id="person" name="person" required value="<%= reservation.person %>" />  
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required><%= reservation.message %></textarea>
+
+        
+
+      
+
+
+        <button type="submit">Update Reservation</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

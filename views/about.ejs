@@ -1,0 +1,69 @@
+<%- include('partials/head.ejs', { title: "Home page" }) %>
+
+<%- include('partials/navbar.ejs') %>		<!-- Welcome Section -->
+<section id="gtco-welcome" class="bg-white section-padding">
+    <div class="container">
+        <div class="section-content">
+            <% function renderAbout(about, imageBase64) { %> 
+                <div class="row">
+                    <div class="col-sm-5 img-bg d-flex shadow align-items-center justify-content-center justify-content-md-end img-2" style="background-image: url(img/img3.png);">
+                    </div>
+              
+                <div class="col-sm-7 py-5 pl-md-0 pl-4">
+                    <div class="heading-section pl-lg-5 ml-md-5">
+                        <span class="subheading">
+                            <%= about.title %>
+                        </span>                       
+                        <h2>
+                            <%= about.subtitle %>
+                        </h2>
+                    </div>
+                    <div class="pl-lg-5 ml-md-5">
+                        <p><%= about.content %></p>
+                        <h3 class="mt-5"><%= about.recipes %></h3>
+                        <div class="row">
+                            <div class="col-4">
+                                
+                                    <img class="img-fluid img-cover" src="img/img1.jpeg" />
+                                    <h6>Veg Biryani</h6>
+                                
+                            </div>
+                            <div class="col-4">
+                                <!-- <a href="#" class="thumb-menu"> -->
+                                    <img class="img-fluid img-cover" src="img/img19.jpeg" />
+                                    <h6>Noodles</h6>
+                                <!-- </a> -->
+                            </div>
+                            <div class="col-4">
+                                <!-- <a href="#" class="thumb-menu"> -->
+                                    <img class="img-fluid img-cover" src="img/img9.jpeg" />
+                                    <h6>Pani Puri</h6>
+                                <!-- </a> -->
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+
+            <% } %>
+            <div class="content">
+                <div class="home">
+                  <div class="item-list">
+                    <% if (abouts.length > 0) { %>
+                    <!-- Call the renderHome function for each home -->
+                    <% abouts.forEach(renderAbout); %> <% } else { %>
+                    <p>No homes found.</p>
+                    <% } %>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</section>
+	
+
+    <%- include('partials/footer.ejs') %>
+</body>
+</html>

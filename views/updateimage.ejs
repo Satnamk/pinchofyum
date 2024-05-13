@@ -1,0 +1,28 @@
+<!-- updateimage.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Pass a JavaScript variable to a partial in EJS -->
+  <%- include('partials/head.ejs', { title: "Update page" }) %>
+<body>
+  <%- include('partials/navbar') %>
+
+  <div class="content">
+    <div class="update">
+      <h2>Update Image</h2>
+      <form action="/single-image/<%= image._id %>?_method=PUT" method="POST">
+        <div class="col-md-12 form-group">
+          <label>Title:</label
+          ><input type="text" value="" id="title" name="title" class="form-control" required />
+        </div>
+      
+        <label for="photo">Photo:</label>
+        <input type="file" id="photo" name="photo" required value="<%= image.photo %>" /> 
+
+        <button type="submit">Update Image</button>
+      </form>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
